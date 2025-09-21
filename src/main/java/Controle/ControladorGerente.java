@@ -3,6 +3,7 @@ package Controle;
 import Factory.FactoryFuncionario;
 import Catalogos.CatalogoFuncionario;
 import Conceitos.Gerente;
+import Conceitos.Funcionario;
 
 public class ControladorGerente {
 
@@ -13,6 +14,8 @@ public class ControladorGerente {
 	private CatalogoFuncionario catalogoFuncionario;
 
 	public void registrarFuncionario(float salario, String senha, String nome, String email, String celular) {
+            Funcionario funcionario = factoryFuncionario.criarFuncionario(salario, senha, nome, email, celular);
+            catalogoFuncionario.adicionarFuncionario(funcionario);
 
 	}
 

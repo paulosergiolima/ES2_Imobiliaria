@@ -43,6 +43,7 @@ public class InterfaceCentral {
 	}
 
 	public void registrarImovel(String nome, Cliente proprietario, boolean ocupacao, int tipo, LaudoTecnico laudo_tecnico, LaudoVistoria laudo_vistoria) {
+            controladorCentral.registrarImovel(nome, proprietario, ocupacao, tipo, laudo_tecnico, laudo_vistoria);
 
 	}
 
