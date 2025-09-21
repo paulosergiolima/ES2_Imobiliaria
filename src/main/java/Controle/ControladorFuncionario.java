@@ -58,7 +58,8 @@ public class ControladorFuncionario {
 	 *  
 	 */
 	public void registrarCliente(String nome, String email, String celular) {
-
+            Cliente cliente = factoryCliente.criarCliente(nome, email, celular);
+            catalogoClientes.adicionarCliente(cliente);
 	}
 
 	public void registrarAluguel(int caucao, float comissao_imobiliaria, float desconto, Funcionario funcionario_responsavel, Imovel imovel, Cliente locatario) {
