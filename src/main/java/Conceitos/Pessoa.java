@@ -29,6 +29,22 @@ public class Pessoa {
 	 */
 	public void notificar(String text) {
 
+	};
+        public String getNome() {
+            return nome;
+        };
+        public String getEmail() {
+            return email;
+        };
+        public String getCelular() {
+            return celular;
+        };
+        public Pessoa(String nome, String email, String celular) {
+		this.nome = nome;
+                this.email = email;
+                this.celular = celular;
 	}
+        
+        
 
 }

@@ -1,0 +1,7 @@
+/home/kinipk/NetBeansProjects/ES_Imobiliaria/.devenv/flake.json
+/home/kinipk/NetBeansProjects/ES_Imobiliaria/.devenv.flake.nix
+/home/kinipk/NetBeansProjects/ES_Imobiliaria/.env
+/home/kinipk/NetBeansProjects/ES_Imobiliaria/devenv.local.nix
+/home/kinipk/NetBeansProjects/ES_Imobiliaria/devenv.lock
+/home/kinipk/NetBeansProjects/ES_Imobiliaria/devenv.nix
+/home/kinipk/NetBeansProjects/ES_Imobiliaria/devenv.yaml

@@ -17,8 +17,6 @@ public class CatalogoAlugueis {
 
 	private Timer timer;
 
-	private Timer timer;
-
 	private ControladorFuncionario controladorFuncionario;
 
 	private ControladorCliente controladorCliente;

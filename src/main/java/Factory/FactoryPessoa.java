@@ -14,7 +14,8 @@ public class FactoryPessoa {
 	 *  
 	 */
 	public Pessoa criarPessoa(String nome, String email, String celular) {
-		return null;
+		Pessoa p = new Pessoa(nome, email, celular);
+                return p;
 	}
 
 }

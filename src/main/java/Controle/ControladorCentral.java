@@ -46,6 +46,7 @@ public class ControladorCentral {
 	}
 
 	public void registrarGerente(float salario, String senha, String nome, String email, String celular) {
+            controladorGerente.registrarGerente(salario, senha, nome, email, celular);
 
 	}
 

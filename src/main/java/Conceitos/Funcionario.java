@@ -4,13 +4,11 @@ import Catalogos.CatalogoFuncionario;
 import Factory.FactoryFuncionario;
 import Controle.ControladorFuncionario;
 
-public class Funcionario extends PessoaFisica {
+public class Funcionario {
 
 	private float salario;
 
 	private PessoaFisica pessoa;
-
-	private PessoaFisica pessoaFisica;
 
 	private Agendamento agendamento;
 
@@ -28,5 +26,10 @@ public class Funcionario extends PessoaFisica {
 	public void notificar(String texto) {
 
 	}
+        public Funcionario (float salario, PessoaFisica pessoa) {
+            this.salario = salario;
+            this.pessoa = pessoa;
+            
+        }
 
 }

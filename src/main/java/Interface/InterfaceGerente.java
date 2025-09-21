@@ -16,6 +16,7 @@ public class InterfaceGerente {
 	 *  
 	 */
 	public void registrarGerente(float salario, String senha, String nome, String email, String celular) {
+            interfaceCentral.registrarGerente(salario, senha, nome, email, celular);
 
 	}
 
