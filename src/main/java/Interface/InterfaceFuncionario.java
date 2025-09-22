@@ -43,6 +43,7 @@ public class InterfaceFuncionario {
 	}
 
 	public void registrarLaudoTecnico(String nome_laudo, String nome_imovel, String endereco, float valor_imovel, float area) {
+            interfaceCentral.registrarLaudoTecnico(nome_laudo, nome_imovel, endereco, valor_imovel, area);
 
 	}
 

@@ -97,7 +97,9 @@ public class ControladorFuncionario {
 	}
 
 	public void registrarLaudoTecnico(String nome_laudo, String nome_imovel, String endereco, float valor_imovel, float area) {
-
+            LaudoTecnico laudoTecnico = factoryLaudo.criarLaudoTecnico(endereco, endereco, valor_imovel, area);
+            Imovel imovel = catalogoImoveis.buscarImovel(nome_imovel);
+            
 	}
 
 }

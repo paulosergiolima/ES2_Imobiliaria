@@ -23,6 +23,7 @@ public class FactoryLaudo {
 	 *  
 	 */
 	public LaudoTecnico criarLaudoTecnico(String nome, String endereco, float valor_imovel, float area) {
+                LaudoTecnico laudo_tecnico = new LaudoTecnico(nome, endereco, valor_imovel, area);
 		return null;
 	}
 

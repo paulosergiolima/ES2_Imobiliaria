@@ -5,5 +5,9 @@ public class LaudoVistoria extends Laudo {
 	private String descricao;
 
 	private Aluguel aluguel;
+        public LaudoVistoria() {
+            this.descricao = "nada";
+            
+        }
 
 }

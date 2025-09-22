@@ -34,5 +34,8 @@ public class Imovel {
             this.laudo_tecnico = laudo_tecnico;
             this.laudo_vistoria = laudo_vistoria;
         }
+        public void setLaudoTecnico(LaudoTecnico laudo_tecnico) {
+            this.laudo_tecnico = laudo_tecnico;
+        }
 
 }
