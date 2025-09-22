@@ -51,12 +51,12 @@ public class ControladorCentral {
 
 	}
 
-	public void registrarFuncionario(float salario, String senha, String nome, String email, String celular) {
-            controladorGerente.registrarFuncionario(salario, senha, nome, email, celular);
+	public void registrarFuncionario(float salario, String senha, String nome, String email, String celular, String cpf) {
+            controladorGerente.registrarFuncionario(salario, senha, nome, email, celular, cpf);
 	}
 
-	public void registrarGerente(float salario, String senha, String nome, String email, String celular) {
-            controladorGerente.registrarGerente(salario, senha, nome, email, celular);
+	public void registrarGerente(float salario, String senha, String nome, String email, String celular, String cpf) {
+            controladorGerente.registrarGerente(salario, senha, nome, email, celular, cpf);
 
 	}
 

@@ -43,8 +43,8 @@ public class InterfaceCentral {
 
 	}
 
-	public void registrarGerente(float salario, String senha, String nome, String email, String celular) {
-            controladorCentral.registrarGerente(salario, senha, nome, email, celular);
+	public void registrarGerente(float salario, String senha, String nome, String email, String celular, String cpf) {
+            controladorCentral.registrarGerente(salario, senha, nome, email, celular, cpf);
 
 	}
 

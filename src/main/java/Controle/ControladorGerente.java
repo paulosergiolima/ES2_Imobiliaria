@@ -18,15 +18,15 @@ public class ControladorGerente {
             this.catalogoFuncionario = new CatalogoFuncionario();
         }
 
-	public void registrarFuncionario(float salario, String senha, String nome, String email, String celular) {
-            Funcionario funcionario = factoryFuncionario.criarFuncionario(salario, senha, nome, email, celular);
+	public void registrarFuncionario(float salario, String senha, String nome, String email, String celular, String cpf) {
+            Funcionario funcionario = factoryFuncionario.criarFuncionario(salario, senha, nome, email, celular, cpf);
             catalogoFuncionario.adicionarFuncionario(funcionario);
 
 	}
 
-	public void registrarGerente(float salario, String senha, String nome, String email, String celular) {
+	public void registrarGerente(float salario, String senha, String nome, String email, String celular, String cpf) {
             
-            Gerente gerente = factoryFuncionario.criarGerente(salario, senha, nome, email, celular);
+            Gerente gerente = factoryFuncionario.criarGerente(salario, senha, nome, email, celular, cpf);
             catalogoFuncionario.adicionarFuncionario(gerente);
 
 	}

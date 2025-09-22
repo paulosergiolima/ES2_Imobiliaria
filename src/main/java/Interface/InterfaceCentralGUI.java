@@ -13,6 +13,8 @@ import Conceitos.LaudoVistoria;
 import Controle.ControladorCentral;
 import javax.swing.*;
 import java.awt.GridLayout;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -52,6 +54,7 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -125,6 +128,14 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem8);
 
+        jMenuItem9.setText("Agendar Vistoria");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem9);
+
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -145,12 +156,10 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        // Criar campos
         JTextField nomeField = new JTextField(15);
         JTextField emailField = new JTextField(15);
         JTextField celularField = new JTextField(15);
 
-        // Colocar os campos dentro de um painel
         JPanel panel = new JPanel(new java.awt.GridLayout(0, 2, 5, 5));
         panel.add(new JLabel("Nome:"));
         panel.add(nomeField);
@@ -159,16 +168,14 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
         panel.add(new JLabel("Celular:"));
         panel.add(celularField);
 
-        // Mostrar o JOptionPane com o painel
         int result = JOptionPane.showConfirmDialog(
-            this,                // janela pai
-            panel,               // conteúdo
-            "Registrar Cliente", // título
+            this,
+            panel,
+            "Registrar Cliente",
             JOptionPane.OK_CANCEL_OPTION,
             JOptionPane.PLAIN_MESSAGE
         );
 
-        // Se clicou em OK, pegar os valores
         if (result == JOptionPane.OK_OPTION) {
             String nome = nomeField.getText();
             String email = emailField.getText();
@@ -177,15 +184,11 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
             controladorCentral.registrarCliente(nome, email, celular);
             
             JOptionPane.showMessageDialog(this, "Cliente registrado.");
-
-            // Aqui você chamaria seu controlador ou factory
-            // controladorFuncionario.registrarCliente(nome, email, celular);
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        // Criar campos
         JTextField caucaoField = new JTextField(15);
         JTextField comissao_imobiliariaField = new JTextField(15);
         JTextField descontoField = new JTextField(15);
@@ -193,7 +196,6 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
         JTextField imovelField = new JTextField(15);
         JTextField locatarioField = new JTextField(15);
 
-        // Colocar os campos dentro de um painel
         JPanel panel = new JPanel(new java.awt.GridLayout(0, 2, 5, 5));
         panel.add(new JLabel("Caução:"));
         panel.add(caucaoField);
@@ -208,16 +210,14 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
         panel.add(new JLabel("Nome do locatário:"));
         panel.add(locatarioField);
 
-        // Mostrar o JOptionPane com o painel
         int result = JOptionPane.showConfirmDialog(
-            this,                // janela pai
-            panel,               // conteúdo
-            "Registrar Aluguel", // título
+            this,
+            panel,
+            "Registrar Aluguel",
             JOptionPane.OK_CANCEL_OPTION,
             JOptionPane.PLAIN_MESSAGE
         );
 
-        // Se clicou em OK, pegar os valores
         if (result == JOptionPane.OK_OPTION) {
             int caucao = Integer.parseInt(caucaoField.getText());
             float comissao_imobiliaria = Float.parseFloat(comissao_imobiliariaField.getText());
@@ -229,22 +229,18 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
             controladorCentral.registrarAluguel(caucao, comissao_imobiliaria, desconto, funcionario_responsavel, imovel, locatario);
             
             JOptionPane.showMessageDialog(this, "Aluguel registrado.");
-
-            // Aqui você chamaria seu controlador ou factory
-            // controladorFuncionario.registrarCliente(nome, email, celular);
         }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-        // Criar campos
         JTextField salarioField = new JTextField(15);
         JTextField senhaField = new JTextField(15);
         JTextField nomeField = new JTextField(15);
         JTextField emailField = new JTextField(15);
         JTextField celularField = new JTextField(15);
+        JTextField cpfField = new JTextField(15);
 
-        // Colocar os campos dentro de um painel
         JPanel panel = new JPanel(new java.awt.GridLayout(0, 2, 5, 5));
         panel.add(new JLabel("Salário: "));
         panel.add(salarioField);
@@ -256,43 +252,40 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
         panel.add(emailField);
         panel.add(new JLabel("Celular:"));
         panel.add(celularField);
+        panel.add(new JLabel("CPF:"));
+        panel.add(cpfField);
 
-        // Mostrar o JOptionPane com o painel
         int result = JOptionPane.showConfirmDialog(
-            this,                // janela pai
-            panel,               // conteúdo
-            "Registrar Funcionário", // título
+            this,
+            panel,
+            "Registrar Funcionário",
             JOptionPane.OK_CANCEL_OPTION,
             JOptionPane.PLAIN_MESSAGE
         );
 
-        // Se clicou em OK, pegar os valores
         if (result == JOptionPane.OK_OPTION) {
             float salario = Float.parseFloat(salarioField.getText());
             String senha = senhaField.getText();
             String nome = nomeField.getText();
             String email = emailField.getText();
             String celular = celularField.getText();
+            String cpf = cpfField.getText();
 
-            controladorCentral.registrarFuncionario(salario, senha, nome, email, celular);
+            controladorCentral.registrarFuncionario(salario, senha, nome, email, celular, cpf);
             
             JOptionPane.showMessageDialog(this, "Funcionario registrado.");
-
-            // Aqui você chamaria seu controlador ou factory
-            // controladorFuncionario.registrarCliente(nome, email, celular);
         }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-        // Criar campos
         JTextField salarioField = new JTextField(15);
         JTextField senhaField = new JTextField(15);
         JTextField nomeField = new JTextField(15);
         JTextField emailField = new JTextField(15);
         JTextField celularField = new JTextField(15);
+        JTextField cpfField = new JTextField(15);
 
-        // Colocar os campos dentro de um painel
         JPanel panel = new JPanel(new java.awt.GridLayout(0, 2, 5, 5));
         panel.add(new JLabel("Salário: "));
         panel.add(salarioField);
@@ -304,77 +297,68 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
         panel.add(emailField);
         panel.add(new JLabel("Celular:"));
         panel.add(celularField);
+        panel.add(new JLabel("CPF:"));
+        panel.add(cpfField);
 
-        // Mostrar o JOptionPane com o painel
         int result = JOptionPane.showConfirmDialog(
-            this,                // janela pai
-            panel,               // conteúdo
-            "Registrar Gerente", // título
+            this,
+            panel,
+            "Registrar Gerente",
             JOptionPane.OK_CANCEL_OPTION,
             JOptionPane.PLAIN_MESSAGE
         );
 
-        // Se clicou em OK, pegar os valores
         if (result == JOptionPane.OK_OPTION) {
             float salario = Float.parseFloat(salarioField.getText());
             String senha = senhaField.getText();
             String nome = nomeField.getText();
             String email = emailField.getText();
             String celular = celularField.getText();
+            String cpf = cpfField.getText();
 
-            controladorCentral.registrarGerente(salario, senha, nome, email, celular);
+            controladorCentral.registrarGerente(salario, senha, nome, email, celular, cpf);
             
             JOptionPane.showMessageDialog(this, "Gerente registrado.");
-
-            // Aqui você chamaria seu controlador ou factory
-            // controladorFuncionario.registrarCliente(nome, email, celular);
         }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
-        // Criar radio buttons para ocupação
         JRadioButton ocupadoButton = new JRadioButton("Ocupado");
         JRadioButton desocupadoButton = new JRadioButton("Desocupado");
 
-        // Agrupar os radios para que só um seja selecionado
         ButtonGroup ocupacaoGroup = new ButtonGroup();
         ocupacaoGroup.add(ocupadoButton);
         ocupacaoGroup.add(desocupadoButton);
 
-        // Painel para os radios
         JPanel ocupacaoPanel = new JPanel();
         ocupacaoPanel.add(ocupadoButton);
         ocupacaoPanel.add(desocupadoButton);
         
-        // Criar campos
         JTextField nomeField = new JTextField(15);
         JTextField proprietarioField = new JTextField(15);
         JTextField tipoField = new JTextField(15);
 
-        // Colocar os campos dentro de um painel
         JPanel panel = new JPanel(new java.awt.GridLayout(0, 2, 5, 5));
         panel.add(new JLabel("Nome do imovel: "));
         panel.add(nomeField);
         panel.add(new JLabel("Nome do proprietario: "));
         panel.add(proprietarioField);
         panel.add(new JLabel("Ocupacao:"));
-        panel.add(ocupacaoPanel); // <<< substituímos o JTextField por radio buttons
+        panel.add(ocupacaoPanel);
         panel.add(new JLabel("Tipo:"));
         panel.add(tipoField);
         
-        // Mostrar o JOptionPane com o painel
         int result = JOptionPane.showConfirmDialog(
-            this,                // janela pai
-            panel,               // conteúdo
-            "Registrar Imóvel", // título
+            this,
+            panel,
+            "Registrar Imóvel",
             JOptionPane.OK_CANCEL_OPTION,
             JOptionPane.PLAIN_MESSAGE
         );
 
-        // Se clicou em OK, pegar os valores
         if (result == JOptionPane.OK_OPTION) {
-            String nome = nomeField.getName();
+            String nome = nomeField.getText();
             Cliente proprietario = controladorCentral.buscarClientePorNome(proprietarioField.getText());
             boolean ocupacao = ocupadoButton.isSelected(); 
             int tipo = Integer.parseInt(tipoField.getText());
@@ -389,12 +373,10 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
-        // Criar campos
         JTextField nome_laudoField = new JTextField(15);
         JTextField nome_imovelField = new JTextField(15);
         JTextField descricaoField = new JTextField(15);
 
-        // Colocar os campos dentro de um painel
         JPanel panel = new JPanel(new java.awt.GridLayout(0, 2, 5, 5));
         panel.add(new JLabel("Nome do laudo:"));
         panel.add(nome_laudoField);
@@ -403,16 +385,14 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
         panel.add(new JLabel("Descrição:"));
         panel.add(descricaoField);
 
-        // Mostrar o JOptionPane com o painel
         int result = JOptionPane.showConfirmDialog(
-            this,                // janela pai
-            panel,               // conteúdo
-            "Registrar Laudo Vistoria", // título
+            this,
+            panel,
+            "Registrar Laudo Vistoria",
             JOptionPane.OK_CANCEL_OPTION,
             JOptionPane.PLAIN_MESSAGE
         );
 
-        // Se clicou em OK, pegar os valores
         if (result == JOptionPane.OK_OPTION) {
             String nome_laudo = nome_laudoField.getText();
             String nome_imovel = nome_imovelField.getText();
@@ -421,22 +401,17 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
             controladorCentral.registrarLaudoVistoria(nome_laudo, nome_imovel, descricao);
             
             JOptionPane.showMessageDialog(this, "Laudo vistoria registrado.");
-
-            // Aqui você chamaria seu controlador ou factory
-            // controladorFuncionario.registrarCliente(nome, email, celular);
         }
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
-        // Criar campos
         JTextField nome_laudoField = new JTextField(15);
         JTextField nome_imovelField = new JTextField(15);
         JTextField enderecoField = new JTextField(15);
         JTextField valor_imovelField = new JTextField(15);
         JTextField areaField = new JTextField(15);
 
-        // Colocar os campos dentro de um painel
         JPanel panel = new JPanel(new java.awt.GridLayout(0, 2, 5, 5));
         panel.add(new JLabel("Nome do laudo:"));
         panel.add(nome_laudoField);
@@ -449,16 +424,14 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
         panel.add(new JLabel("Área:"));
         panel.add(areaField);
 
-        // Mostrar o JOptionPane com o painel
         int result = JOptionPane.showConfirmDialog(
-            this,                // janela pai
-            panel,               // conteúdo
-            "Registrar Laudo Vistoria", // título
+            this,
+            panel,
+            "Registrar Laudo Técnico",
             JOptionPane.OK_CANCEL_OPTION,
             JOptionPane.PLAIN_MESSAGE
         );
 
-        // Se clicou em OK, pegar os valores
         if (result == JOptionPane.OK_OPTION) {
             String nome_laudo = nome_laudoField.getText();
             String nome_imovel = nome_imovelField.getText();
@@ -469,16 +442,85 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
             controladorCentral.registrarLaudoTecnico(nome_laudo, nome_imovel, endereco, valor_imovel, area);
             
             JOptionPane.showMessageDialog(this, "Laudo técnico registrado.");
-
-            // Aqui você chamaria seu controlador ou factory
-            // controladorFuncionario.registrarCliente(nome, email, celular);
         }
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         // TODO add your handling code here:
+        JTextField clienteField = new JTextField(15);
+        JTextField funcionarioField = new JTextField(15);
+        JTextField imovelField = new JTextField(15);
+        JTextField data_horaField = new JTextField(15);
+
+        JPanel panel = new JPanel(new java.awt.GridLayout(0, 2, 5, 5));
+        panel.add(new JLabel("Nome do cliente:"));
+        panel.add(clienteField);
+        panel.add(new JLabel("Nome do funcionário:"));
+        panel.add(funcionarioField);
+        panel.add(new JLabel("Nome do imóvel:"));
+        panel.add(imovelField);
+        panel.add(new JLabel("Data e hora (dd/MM/yyyy HH:mm):"));
+        panel.add(data_horaField);
+
+        int result = JOptionPane.showConfirmDialog(
+            this,
+            panel,
+            "Agendar Visita",
+            JOptionPane.OK_CANCEL_OPTION,
+            JOptionPane.PLAIN_MESSAGE
+        );
+
+        if (result == JOptionPane.OK_OPTION) {
+            Cliente cliente = controladorCentral.buscarClientePorNome(clienteField.getText());
+            Funcionario funcionario = controladorCentral.buscarFuncionarioPorNome(funcionarioField.getText());
+            Imovel imovel = controladorCentral.buscarImovel(imovelField.getText());
+            DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+            LocalDateTime data_hora = LocalDateTime.parse(data_horaField.getText(), fmt);
+
+            controladorCentral.agendarVisita(cliente, funcionario, imovel, data_hora);
+            
+            JOptionPane.showMessageDialog(this, "Visita agendada.");
+        }
         
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+        JTextField clienteField = new JTextField(15);
+        JTextField funcionarioField = new JTextField(15);
+        JTextField imovelField = new JTextField(15);
+        JTextField data_horaField = new JTextField(15);
+
+        JPanel panel = new JPanel(new java.awt.GridLayout(0, 2, 5, 5));
+        panel.add(new JLabel("Nome do cliente:"));
+        panel.add(clienteField);
+        panel.add(new JLabel("Nome do funcionário:"));
+        panel.add(funcionarioField);
+        panel.add(new JLabel("Nome do imóvel:"));
+        panel.add(imovelField);
+        panel.add(new JLabel("Data e hora (dd/MM/yyyy HH:mm):"));
+        panel.add(data_horaField);
+
+        int result = JOptionPane.showConfirmDialog(
+            this,
+            panel,
+            "Agendar Vistoria",
+            JOptionPane.OK_CANCEL_OPTION,
+            JOptionPane.PLAIN_MESSAGE
+        );
+
+        if (result == JOptionPane.OK_OPTION) {
+            Cliente cliente = controladorCentral.buscarClientePorNome(clienteField.getText());
+            Funcionario funcionario = controladorCentral.buscarFuncionarioPorNome(funcionarioField.getText());
+            Imovel imovel = controladorCentral.buscarImovel(imovelField.getText());
+            DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+            LocalDateTime data_hora = LocalDateTime.parse(data_horaField.getText(), fmt);
+
+            controladorCentral.agendarVistoria(cliente, funcionario, imovel, data_hora);
+            
+            JOptionPane.showMessageDialog(this, "Vistoria agendada.");
+        }
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -517,5 +559,6 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 }

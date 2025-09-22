@@ -16,16 +16,20 @@ public class CatalogoAgendamentos {
 	private FactoryAgendamento factoryAgendamento;
 
 	private ControladorFuncionario controladorFuncionario;
+        
+        public CatalogoAgendamentos() {
+            this.agendamentos = new ArrayList<>();
+        }
 
 	public void adicionarVisita(AgendamentoVisita visita) {
-
+            this.agendamentos.add(visita);
 	}
 
 	/**
 	 *  
 	 */
 	public void adicionarVistoria(AgendamentoVistoria vistoria) {
-
+            this.agendamentos.add(vistoria);
 	}
 
 }

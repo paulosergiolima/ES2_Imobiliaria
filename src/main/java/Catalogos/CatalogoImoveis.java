@@ -12,11 +12,14 @@ public class CatalogoImoveis {
 
 	private ControladorFuncionario controladorFuncionario;
 
+        public CatalogoImoveis() {
+            this.imoveis = new ArrayList<>();
+        }
 	/**
 	 *  
 	 */
 	public void adicionarImovel(Imovel imovel) {
-
+            this.imoveis.add(imovel);
 	}
 
 	/**
