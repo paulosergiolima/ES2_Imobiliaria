@@ -3,6 +3,7 @@ package Conceitos;
 import java.util.ArrayList;
 import Factory.FactoryPessoa;
 import Factory.FactoryNotificacao;
+import Conceitos.Notificacao;
 
 public class Pessoa {
 
@@ -28,6 +29,8 @@ public class Pessoa {
 	 *  
 	 */
 	public void notificar(String text) {
+            Notificacao notificao = factoryNotificacao.criarNotificacao(text);
+            
 
 	};
         public String getNome() {

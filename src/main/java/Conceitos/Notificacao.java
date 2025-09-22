@@ -9,5 +9,10 @@ public class Notificacao {
 	private Pessoa pessoa;
 
 	private FactoryNotificacao factoryNotificacao;
+        public Notificacao(String conteudo, Pessoa pessoa) {
+            this.conteudo = conteudo;
+            this.pessoa = pessoa;
+            
+        }
 
 }

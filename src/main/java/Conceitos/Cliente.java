@@ -38,6 +38,7 @@ public class Cliente {
         }
 
 	public void notificar(String texto) {
+            pessoa.notificar(texto);
 
 	}
 

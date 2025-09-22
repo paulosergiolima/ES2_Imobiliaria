@@ -24,6 +24,7 @@ public class Funcionario {
 	 *  
 	 */
 	public void notificar(String texto) {
+            pessoa.notificar(texto);
 
 	}
         public Funcionario (float salario, PessoaFisica pessoa) {
