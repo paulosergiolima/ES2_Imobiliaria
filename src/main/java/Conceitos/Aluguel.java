@@ -36,7 +36,12 @@ public class Aluguel {
 	 *  
 	 */
 	public CobrancaAluguel criarCobrancaAluguel() {
-		return null;
+                CobrancaAluguel cobranca = factoryCobranca.criarCobrancaAluguel(desconto);
+                this.cliente.adicionarCobrancaAluguel(cobranca);
+		return cobranca;
 	}
+        public Cliente getCliente() {
+            return cliente;
+        }
 
 }

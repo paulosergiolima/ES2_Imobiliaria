@@ -7,6 +7,10 @@ import Conceitos.Cliente;
 import Conceitos.CobrancaAluguel;
 import Conceitos.Multa;
 
+import java.time.YearMonth;
+import java.time.LocalDateTime;
+import java.time.LocalDate;
+
 public class FactoryCobranca {
 
 	private Cobranca cobranca;
@@ -21,7 +25,13 @@ public class FactoryCobranca {
 	 *  
 	 */
 	public CobrancaAluguel criarCobrancaAluguel(float valor) {
-		return null;
+                LocalDateTime now = LocalDateTime.now();
+                YearMonth yearMonth = YearMonth.from(now);
+        
+                LocalDate lastDay = yearMonth.atEndOfMonth();
+                LocalDateTime lastDayDateTime = lastDay.atTime(now.toLocalTime());
+                CobrancaAluguel cobranca = new CobrancaAluguel(valor, lastDayDateTime, this.cliente);
+		return cobranca;
 	}
 
 	/**

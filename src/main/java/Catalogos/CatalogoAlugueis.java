@@ -6,6 +6,8 @@ import Factory.FactoryAluguel;
 import Controle.Timer;
 import Controle.ControladorFuncionario;
 import Controle.ControladorCliente;
+import Conceitos.CobrancaAluguel;
+import Conceitos.Cliente;
 
 public class CatalogoAlugueis {
 
@@ -32,6 +34,9 @@ public class CatalogoAlugueis {
 	 *  
 	 */
 	public void criarCobrancaAluguel() {
+            for (Aluguel a: alugueis) {
+                CobrancaAluguel cobranca = a.criarCobrancaAluguel();
+            }
 
 	}
 

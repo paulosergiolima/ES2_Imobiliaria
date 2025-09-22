@@ -12,5 +12,11 @@ public class Cobranca {
 	private Cliente cliente;
 
 	private FactoryCobranca factoryCobranca;
+        
+        public Cobranca(float valor, LocalDateTime dia_pagamento, Cliente cliente) {
+            this.valor = valor;
+            this.dia_pagamento = dia_pagamento;
+            this.cliente = cliente;
+        }
 
 }
