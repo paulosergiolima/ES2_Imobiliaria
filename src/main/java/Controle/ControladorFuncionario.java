@@ -16,8 +16,10 @@ import Conceitos.LaudoTecnico;
 import Conceitos.LaudoVistoria;
 import Conceitos.AgendamentoVisita;
 import Conceitos.AgendamentoVistoria;
+import Conceitos.Aluguel;
 
 import java.time.LocalDateTime;
+
 
 public class ControladorFuncionario {
 
@@ -78,6 +80,9 @@ public class ControladorFuncionario {
 	}
 
 	public void registrarAluguel(int caucao, float comissao_imobiliaria, float desconto, Funcionario funcionario_responsavel, Imovel imovel, Cliente locatario) {
+            Aluguel aluguel = factoryAluguel.criarAluguel(caucao, comissao_imobiliaria, desconto, funcionario_responsavel, imovel, locatario);
+            catalogoAlugueis.adicionarAluguel(aluguel);
+            
 
 	}
 

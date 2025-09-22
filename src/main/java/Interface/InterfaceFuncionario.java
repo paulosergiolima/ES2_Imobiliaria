@@ -29,6 +29,7 @@ public class InterfaceFuncionario {
 	 *  
 	 */
 	public void registrarAluguel(int caucao, float comissao_imobiliaria, float desconto, Funcionario funcionario_responsavel, Imovel imovel, Cliente locatario) {
+            interfaceCentral.registrarAluguel(caucao, comissao_imobiliaria, desconto, funcionario_responsavel, imovel, locatario);
 
 	}
 

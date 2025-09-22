@@ -22,10 +22,6 @@ public class Aluguel {
 
 	private LaudoTecnico laudoTecnico;
 
-	private Cliente cliente;
-
-	private Funcionario funcionario;
-
 	private CatalogoAlugueis catalogoAlugueis;
 
 	private FactoryAluguel factoryAluguel;
@@ -37,11 +33,19 @@ public class Aluguel {
 	 */
 	public CobrancaAluguel criarCobrancaAluguel() {
                 CobrancaAluguel cobranca = factoryCobranca.criarCobrancaAluguel(desconto);
-                this.cliente.adicionarCobrancaAluguel(cobranca);
+                this.locatario.adicionarCobrancaAluguel(cobranca);
 		return cobranca;
 	}
         public Cliente getCliente() {
-            return cliente;
+            return this.locatario;
         }
+        public Aluguel (int caucao, float comissao_imobiliaria, float desconto, Funcionario funcionario_responsavel, Imovel imovel, Cliente locatario) {
+                this.caucao = caucao;
+                this.comissao_imobiliaria = comissao_imobiliaria;
+                this.desconto = desconto;
+                this.funcionario_responsavel = funcionario_responsavel;
+                this.imovel = imovel;
+                this.locatario = locatario;
+	}
 
 }
