@@ -36,7 +36,7 @@ public class ControladorCentral {
 	 *  
 	 */
 	public void registrarCliente(String nome, String email, String celular) {
-
+            controladorFuncionario.registrarCliente(nome, email, celular);
 	}
 
 	public void registrarAluguel(int caucao, float comissao_imobiliaria, float desconto, Funcionario funcionario_responsavel, Imovel imovel, Cliente locatario) {

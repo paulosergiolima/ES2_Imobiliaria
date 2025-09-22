@@ -32,6 +32,10 @@ public class Cliente {
 	private FactoryNotificacao factoryNotificacao;
 
 	private ControladorCliente controladorCliente;
+        
+        public Cliente(Pessoa pessoa) {
+            this.pessoa = pessoa;
+        }
 
 	public void notificar(String texto) {
 
