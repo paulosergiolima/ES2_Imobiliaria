@@ -5,12 +5,14 @@ import Conceitos.Funcionario;
 import Conceitos.Imovel;
 import Conceitos.LaudoTecnico;
 import Conceitos.LaudoVistoria;
+import java.time.LocalDateTime;
 
 public class InterfaceFuncionario {
 
 	private InterfaceCentral interfaceCentral;
 
-	public void agendarVisita(Cliente cliente, Funcionario funcionario, Imovel imovel) {
+	public void agendarVisita(Cliente cliente, Funcionario funcionario, Imovel imovel, LocalDateTime data_hora) {
+            interfaceCentral.agendarVisita(cliente, funcionario, imovel, data_hora);
 
 	}
 
@@ -30,6 +32,7 @@ public class InterfaceFuncionario {
 	}
 
 	public void registrarImovel(String nome, Cliente proprietario, boolean ocupacao, int tipo, LaudoTecnico laudo_tecnico, LaudoVistoria laudo_vistoria) {
+            interfaceCentral.registrarImovel(nome, proprietario, ocupacao, tipo, laudo_tecnico, laudo_vistoria);
 
 	}
 

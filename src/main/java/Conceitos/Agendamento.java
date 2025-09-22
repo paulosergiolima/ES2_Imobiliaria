@@ -17,5 +17,12 @@ public class Agendamento {
 	private CatalogoAgendamentos catalogoAgendamentos;
 
 	private FactoryAgendamento factoryAgendamento;
+        
+        public Agendamento(Cliente cliente, Funcionario funcionario, Imovel imovel, LocalDateTime data_hora) {
+            this.cliente = cliente;
+            this.funcionario = funcionario;
+            this.imovel = imovel;
+            this.data_hora = data_hora;
+        }
 
 }

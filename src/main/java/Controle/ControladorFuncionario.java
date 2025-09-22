@@ -14,6 +14,9 @@ import Conceitos.Cliente;
 import Conceitos.Imovel;
 import Conceitos.LaudoTecnico;
 import Conceitos.LaudoVistoria;
+import Conceitos.AgendamentoVisita;
+
+import java.time.LocalDateTime;
 
 public class ControladorFuncionario {
 
@@ -43,7 +46,13 @@ public class ControladorFuncionario {
 	/**
 	 *  
 	 */
-	public void agendarVisita(Cliente cliente, Funcionario funcionario, Imovel imovel) {
+	public void agendarVisita(Cliente cliente, Funcionario funcionario, Imovel imovel, LocalDateTime data_hora) {
+            AgendamentoVisita visita = factoryAgendamento.criarVisita(cliente, funcionario, imovel, data_hora);
+            catalogoAgendamentos.adicionarVisita(visita);
+            cliente.notificar("Agendamento feito");
+            funcionario.notificar("Agendamento feito");
+            
+            
 
 	}
 
@@ -66,6 +75,8 @@ public class ControladorFuncionario {
 	}
 
 	public void registrarImovel(String nome, Cliente proprietario, boolean ocupacao, int tipo, LaudoTecnico laudo_tecnico, LaudoVistoria laudo_vistoria) {
+            Imovel imovel = factoryImovel.criarImovel(nome, proprietario, ocupacao, tipo, laudo_tecnico, laudo_vistoria);
+            catalogoImoveis.adicionarImovel(imovel);
 
 	}
 

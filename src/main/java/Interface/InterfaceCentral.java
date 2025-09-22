@@ -6,6 +6,7 @@ import Conceitos.Funcionario;
 import Conceitos.Imovel;
 import Conceitos.LaudoTecnico;
 import Conceitos.LaudoVistoria;
+import java.time.LocalDateTime;
 
 public class InterfaceCentral {
 
@@ -17,7 +18,8 @@ public class InterfaceCentral {
 
 	private InterfaceGerente interfaceGerente;
 
-	public void agendarVisita(Cliente cliente, Funcionario funcionario, Imovel imovel) {
+	public void agendarVisita(Cliente cliente, Funcionario funcionario, Imovel imovel, LocalDateTime data_hora) {
+            controladorCentral.agendarVisita(cliente, funcionario, imovel, data_hora);
 
 	}
 

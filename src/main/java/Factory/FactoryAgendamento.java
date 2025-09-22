@@ -8,6 +8,7 @@ import Conceitos.Cliente;
 import Conceitos.Funcionario;
 import Conceitos.Imovel;
 import Conceitos.AgendamentoVistoria;
+import java.time.LocalDateTime;
 
 public class FactoryAgendamento {
 
@@ -20,7 +21,8 @@ public class FactoryAgendamento {
 	/**
 	 *  
 	 */
-	public AgendamentoVisita criarVisita(Cliente cliente, Funcionario funcionario, Imovel imovel) {
+	public AgendamentoVisita criarVisita(Cliente cliente, Funcionario funcionario, Imovel imovel, LocalDateTime data_hora) {
+                AgendamentoVisita visita = new AgendamentoVisita(cliente, funcionario, imovel, data_hora);
 		return null;
 	}
 
