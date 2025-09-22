@@ -26,5 +26,13 @@ public class Imovel {
 	private CatalogoImoveis catalogoImoveis;
 
 	private FactoryImovel factoryImovel;
+        public Imovel(String nome, Cliente proprietario, boolean ocupacao, int tipo, LaudoTecnico laudo_tecnico, LaudoVistoria laudo_vistoria) {
+            this.nome = nome;
+            this.proprietario = proprietario;
+            this.ocupacao = ocupacao;
+            this.tipo = tipo;
+            this.laudo_tecnico = laudo_tecnico;
+            this.laudo_vistoria = laudo_vistoria;
+        }
 
 }
