@@ -39,6 +39,7 @@ public class InterfaceFuncionario {
 	}
 
 	public void registrarLaudoVistoria(String nome_laudo, String nome_imovel, String descricao) {
+            interfaceCentral.registrarLaudoVistoria(nome_laudo, nome_imovel, descricao);
 
 	}
 

@@ -93,12 +93,17 @@ public class ControladorFuncionario {
 	}
 
 	public void registrarLaudoVistoria(String nome_laudo, String nome_imovel, String descricao) {
+            LaudoVistoria laudo_vistoria = factoryLaudo.criarLaudoVistoria(nome_laudo, descricao);
+            Imovel imovel = catalogoImoveis.buscarImovel(nome_imovel);
+            imovel.setLaudoVistoria(laudo_vistoria);
+            
 
 	}
 
 	public void registrarLaudoTecnico(String nome_laudo, String nome_imovel, String endereco, float valor_imovel, float area) {
-            LaudoTecnico laudoTecnico = factoryLaudo.criarLaudoTecnico(endereco, endereco, valor_imovel, area);
+            LaudoTecnico laudo_tecnico = factoryLaudo.criarLaudoTecnico(endereco, endereco, valor_imovel, area);
             Imovel imovel = catalogoImoveis.buscarImovel(nome_imovel);
+            imovel.setLaudoTecnico(laudo_tecnico);
             
 	}
 

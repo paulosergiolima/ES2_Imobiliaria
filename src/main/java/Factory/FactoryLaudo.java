@@ -16,7 +16,8 @@ public class FactoryLaudo {
 	 *  
 	 */
 	public LaudoVistoria criarLaudoVistoria(String nome, String descricao) {
-		return null;
+                LaudoVistoria laudo_vistoria = new LaudoVistoria(nome, descricao);
+		return laudo_vistoria;
 	}
 
 	/**
@@ -24,7 +25,7 @@ public class FactoryLaudo {
 	 */
 	public LaudoTecnico criarLaudoTecnico(String nome, String endereco, float valor_imovel, float area) {
                 LaudoTecnico laudo_tecnico = new LaudoTecnico(nome, endereco, valor_imovel, area);
-		return null;
+		return laudo_tecnico;
 	}
 
 }

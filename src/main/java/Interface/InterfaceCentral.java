@@ -53,7 +53,7 @@ public class InterfaceCentral {
 	}
 
 	public void registrarLaudoVistoria(String nome_laudo, String nome_imovel, String descricao) {
-
+            controladorCentral.registrarLaudoVistoria(nome_laudo, nome_imovel, descricao);
 	}
 
 	public void registrarLaudoTecnico(String nome_laudo, String nome_imovel, String endereco, float valor_imovel, float area) {

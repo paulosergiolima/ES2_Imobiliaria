@@ -60,6 +60,7 @@ public class ControladorCentral {
 	}
 
 	public void registrarLaudoVistoria(String nome_laudo, String nome_imovel, String descricao) {
+            controladorFuncionario.registrarLaudoVistoria(nome_laudo, nome_imovel, descricao);
 
 	}
 
