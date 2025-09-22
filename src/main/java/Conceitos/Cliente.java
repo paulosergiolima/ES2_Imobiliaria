@@ -73,5 +73,9 @@ public class Cliente {
 	public Cobranca pagarCobranca(int index) {
 		return null;
 	}
+        
+        public String getNome() {
+            return pessoa.getNome();
+        }
 
 }

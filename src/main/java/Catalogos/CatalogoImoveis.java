@@ -23,7 +23,12 @@ public class CatalogoImoveis {
 	 *  
 	 */
 	public Imovel buscarImovel(String nome) {
-		return null;
+            for(int i = 0; i < imoveis.size(); i++) {
+                if(imoveis.get(i).getNome().equals(nome)) {
+                    return imoveis.get(i);
+                }
+            }
+            return null;
 	}
 
 }

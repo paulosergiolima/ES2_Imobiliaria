@@ -19,6 +19,12 @@ public class ControladorCentral {
 	private Timer timer;
 
 	private InterfaceCentral interfaceCentral;
+        
+        public ControladorCentral() {
+            this.controladorFuncionario = new ControladorFuncionario();
+            this.controladorCliente = new ControladorCliente();
+            this.controladorGerente = new ControladorGerente();
+        }
 
 	public void agendarVisita(Cliente cliente, Funcionario funcionario, Imovel imovel, LocalDateTime data_hora) {
             controladorFuncionario.agendarVisita(cliente, funcionario, imovel, data_hora);
@@ -46,7 +52,7 @@ public class ControladorCentral {
 	}
 
 	public void registrarFuncionario(float salario, String senha, String nome, String email, String celular) {
-
+            controladorGerente.registrarFuncionario(salario, senha, nome, email, celular);
 	}
 
 	public void registrarGerente(float salario, String senha, String nome, String email, String celular) {
@@ -76,5 +82,16 @@ public class ControladorCentral {
 	public int mostrarCobrancas(String texto) {
 		return 0;
 	}
+        
+        public Cliente buscarClientePorNome(String nome) {
+            return controladorFuncionario.buscarClientePorNome(nome);
+        }
 
+        public Funcionario buscarFuncionarioPorNome(String nome) {
+            return controladorGerente.buscarFuncionarioPorNome(nome);
+        }
+        
+        public Imovel buscarImovel(String nome) {
+            return controladorFuncionario.buscarImovel(nome);
+        }
 }

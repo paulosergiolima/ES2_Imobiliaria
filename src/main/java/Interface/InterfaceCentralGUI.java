@@ -5,6 +5,11 @@
 package Interface;
 
 
+import Conceitos.Cliente;
+import Conceitos.Funcionario;
+import Conceitos.Imovel;
+import Conceitos.LaudoTecnico;
+import Conceitos.LaudoVistoria;
 import Controle.ControladorCentral;
 import javax.swing.*;
 import java.awt.GridLayout;
@@ -46,6 +51,7 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,7 +115,16 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Edit");
+        jMenu3.setText("Agendar");
+
+        jMenuItem8.setText("Agendar Visita");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem8);
+
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -170,6 +185,54 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
+        // Criar campos
+        JTextField caucaoField = new JTextField(15);
+        JTextField comissao_imobiliariaField = new JTextField(15);
+        JTextField descontoField = new JTextField(15);
+        JTextField funcionario_responsavelField = new JTextField(15);
+        JTextField imovelField = new JTextField(15);
+        JTextField locatarioField = new JTextField(15);
+
+        // Colocar os campos dentro de um painel
+        JPanel panel = new JPanel(new java.awt.GridLayout(0, 2, 5, 5));
+        panel.add(new JLabel("Caução:"));
+        panel.add(caucaoField);
+        panel.add(new JLabel("Comissão imobiliária:"));
+        panel.add(comissao_imobiliariaField);
+        panel.add(new JLabel("Desconto:"));
+        panel.add(descontoField);
+        panel.add(new JLabel("Nome do funcionário responsável:"));
+        panel.add(funcionario_responsavelField);
+        panel.add(new JLabel("Nome do imóvel:"));
+        panel.add(imovelField);
+        panel.add(new JLabel("Nome do locatário:"));
+        panel.add(locatarioField);
+
+        // Mostrar o JOptionPane com o painel
+        int result = JOptionPane.showConfirmDialog(
+            this,                // janela pai
+            panel,               // conteúdo
+            "Registrar Aluguel", // título
+            JOptionPane.OK_CANCEL_OPTION,
+            JOptionPane.PLAIN_MESSAGE
+        );
+
+        // Se clicou em OK, pegar os valores
+        if (result == JOptionPane.OK_OPTION) {
+            int caucao = Integer.parseInt(caucaoField.getText());
+            float comissao_imobiliaria = Float.parseFloat(comissao_imobiliariaField.getText());
+            float desconto = Float.parseFloat(descontoField.getText());
+            Funcionario funcionario_responsavel = controladorCentral.buscarFuncionarioPorNome(funcionario_responsavelField.getText());
+            Imovel imovel = controladorCentral.buscarImovel(imovelField.getText());
+            Cliente locatario = controladorCentral.buscarClientePorNome(locatarioField.getText());
+
+            controladorCentral.registrarAluguel(caucao, comissao_imobiliaria, desconto, funcionario_responsavel, imovel, locatario);
+            
+            JOptionPane.showMessageDialog(this, "Aluguel registrado.");
+
+            // Aqui você chamaria seu controlador ou factory
+            // controladorFuncionario.registrarCliente(nome, email, celular);
+        }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -270,6 +333,58 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
+        // Criar radio buttons para ocupação
+        JRadioButton ocupadoButton = new JRadioButton("Ocupado");
+        JRadioButton desocupadoButton = new JRadioButton("Desocupado");
+
+        // Agrupar os radios para que só um seja selecionado
+        ButtonGroup ocupacaoGroup = new ButtonGroup();
+        ocupacaoGroup.add(ocupadoButton);
+        ocupacaoGroup.add(desocupadoButton);
+
+        // Painel para os radios
+        JPanel ocupacaoPanel = new JPanel();
+        ocupacaoPanel.add(ocupadoButton);
+        ocupacaoPanel.add(desocupadoButton);
+        
+        // Criar campos
+        JTextField nomeField = new JTextField(15);
+        JTextField proprietarioField = new JTextField(15);
+        JTextField tipoField = new JTextField(15);
+
+        // Colocar os campos dentro de um painel
+        JPanel panel = new JPanel(new java.awt.GridLayout(0, 2, 5, 5));
+        panel.add(new JLabel("Nome do imovel: "));
+        panel.add(nomeField);
+        panel.add(new JLabel("Nome do proprietario: "));
+        panel.add(proprietarioField);
+        panel.add(new JLabel("Ocupacao:"));
+        panel.add(ocupacaoPanel); // <<< substituímos o JTextField por radio buttons
+        panel.add(new JLabel("Tipo:"));
+        panel.add(tipoField);
+        
+        // Mostrar o JOptionPane com o painel
+        int result = JOptionPane.showConfirmDialog(
+            this,                // janela pai
+            panel,               // conteúdo
+            "Registrar Imóvel", // título
+            JOptionPane.OK_CANCEL_OPTION,
+            JOptionPane.PLAIN_MESSAGE
+        );
+
+        // Se clicou em OK, pegar os valores
+        if (result == JOptionPane.OK_OPTION) {
+            String nome = nomeField.getName();
+            Cliente proprietario = controladorCentral.buscarClientePorNome(proprietarioField.getText());
+            boolean ocupacao = ocupadoButton.isSelected(); 
+            int tipo = Integer.parseInt(tipoField.getText());
+            LaudoTecnico laudo_tecnico = null;
+            LaudoVistoria laudo_vistoria = null;
+
+            controladorCentral.registrarImovel(nome, proprietario, ocupacao, tipo, laudo_tecnico, laudo_vistoria);
+            
+            JOptionPane.showMessageDialog(this, "Imóvel registrado.");
+        }
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
@@ -285,7 +400,7 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
         panel.add(nome_laudoField);
         panel.add(new JLabel("Nome do imóvel:"));
         panel.add(nome_imovelField);
-        panel.add(new JLabel("Descrição"));
+        panel.add(new JLabel("Descrição:"));
         panel.add(descricaoField);
 
         // Mostrar o JOptionPane com o painel
@@ -360,6 +475,11 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -396,5 +516,6 @@ public class InterfaceCentralGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     // End of variables declaration//GEN-END:variables
 }

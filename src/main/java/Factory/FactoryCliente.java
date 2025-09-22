@@ -11,6 +11,10 @@ public class FactoryCliente {
 	private ControladorFuncionario controladorFuncionario;
 
 	private FactoryPessoa factoryPessoa;
+        
+        public FactoryCliente() {
+            this.factoryPessoa = new FactoryPessoa();
+        }
 
 	/**
 	 *  

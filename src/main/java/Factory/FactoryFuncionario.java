@@ -15,6 +15,10 @@ public class FactoryFuncionario {
 	private FactoryPessoa factoryPessoa;
 
 	private Gerente gerente;
+        
+        public FactoryFuncionario() {
+            this.factoryPessoa = new FactoryPessoa();
+        }
 
 	/**
 	 *  
