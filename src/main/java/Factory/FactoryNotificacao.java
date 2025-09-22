@@ -16,7 +16,8 @@ public class FactoryNotificacao {
 	 *  
 	 */
 	public Notificacao criarNotificacao(String texto) {
-		return null;
+                Notificacao noti = new Notificacao(texto);
+		return noti;
 	}
 
 }

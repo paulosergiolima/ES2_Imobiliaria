@@ -6,12 +6,9 @@ public class Notificacao {
 
 	private String conteudo;
 
-	private Pessoa pessoa;
-
 	private FactoryNotificacao factoryNotificacao;
-        public Notificacao(String conteudo, Pessoa pessoa) {
+        public Notificacao(String conteudo) {
             this.conteudo = conteudo;
-            this.pessoa = pessoa;
             
         }
 

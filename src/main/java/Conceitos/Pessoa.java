@@ -30,6 +30,7 @@ public class Pessoa {
 	 */
 	public void notificar(String text) {
             Notificacao notificao = factoryNotificacao.criarNotificacao(text);
+            notificacoes.add(notificacao);
             
 
 	};
@@ -42,6 +43,7 @@ public class Pessoa {
         public String getCelular() {
             return celular;
         };
+      
         public Pessoa(String nome, String email, String celular) {
 		this.nome = nome;
                 this.email = email;
