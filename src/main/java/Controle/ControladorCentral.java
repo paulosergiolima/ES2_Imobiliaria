@@ -28,7 +28,8 @@ public class ControladorCentral {
 	/**
 	 *  
 	 */
-	public void agendarVistoria(Cliente cliente, Funcionario funcionario, Imovel imovel) {
+	public void agendarVistoria(Cliente cliente, Funcionario funcionario, Imovel imovel, LocalDateTime data_hora) {
+            controladorFuncionario.agendarVistoria(cliente, funcionario, imovel, data_hora);
 
 	}
 

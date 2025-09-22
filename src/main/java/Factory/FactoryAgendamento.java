@@ -23,14 +23,15 @@ public class FactoryAgendamento {
 	 */
 	public AgendamentoVisita criarVisita(Cliente cliente, Funcionario funcionario, Imovel imovel, LocalDateTime data_hora) {
                 AgendamentoVisita visita = new AgendamentoVisita(cliente, funcionario, imovel, data_hora);
-		return null;
+		return visita;
 	}
 
 	/**
 	 *  
 	 */
-	public AgendamentoVistoria criarVistoria(Cliente cliente, Funcionario funcionario, Imovel imovel) {
-		return null;
+	public AgendamentoVistoria criarVistoria(Cliente cliente, Funcionario funcionario, Imovel imovel, LocalDateTime data_hora) {
+                AgendamentoVistoria vistoria = new AgendamentoVistoria(cliente, funcionario, imovel, data_hora);
+		return vistoria;
 	}
 
 }

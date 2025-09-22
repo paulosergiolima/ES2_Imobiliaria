@@ -16,7 +16,8 @@ public class InterfaceFuncionario {
 
 	}
 
-	public void agendarVistoria(Cliente cliente, Funcionario funcionario, Imovel imovel) {
+	public void agendarVistoria(Cliente cliente, Funcionario funcionario, Imovel imovel, LocalDateTime data_hora) {
+            interfaceCentral.agendarVistoria(cliente, funcionario, imovel, data_hora);
 
 	}
 

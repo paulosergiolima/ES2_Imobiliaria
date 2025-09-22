@@ -23,7 +23,9 @@ public class InterfaceCentral {
 
 	}
 
-	public void agendarVistoria(Cliente cliente, Funcionario funcionario, Imovel imovel) {
+	public void agendarVistoria(Cliente cliente, Funcionario funcionario, Imovel imovel, LocalDateTime data_hora) {
+            controladorCentral.agendarVistoria(cliente, funcionario, imovel, data_hora);
+            
 
 	}
 

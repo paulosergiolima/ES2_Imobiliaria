@@ -15,6 +15,7 @@ import Conceitos.Imovel;
 import Conceitos.LaudoTecnico;
 import Conceitos.LaudoVistoria;
 import Conceitos.AgendamentoVisita;
+import Conceitos.AgendamentoVistoria;
 
 import java.time.LocalDateTime;
 
@@ -59,7 +60,12 @@ public class ControladorFuncionario {
 	/**
 	 *  
 	 */
-	public void agendarVistoria(Cliente cliente, Funcionario funcionario, Imovel imovel) {
+	public void agendarVistoria(Cliente cliente, Funcionario funcionario, Imovel imovel,LocalDateTime data_hora) {
+            AgendamentoVistoria vistoria = factoryAgendamento.criarVistoria(cliente, funcionario, imovel, data_hora);
+            catalogoAgendamentos.adicionarVistoria(vistoria);
+           cliente.notificar("Agendamento feito");
+           funcionario.notificar("Agendamento feito");
+            
 
 	}
 
