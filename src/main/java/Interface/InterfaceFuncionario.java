@@ -22,6 +22,7 @@ public class InterfaceFuncionario {
 	}
 
 	public void registrarCliente(String nome, String email, String celular) {
+            interfaceCentral.registrarCliente(nome, email, celular);
 
 	}
 

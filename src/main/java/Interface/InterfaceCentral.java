@@ -30,6 +30,7 @@ public class InterfaceCentral {
 	}
 
 	public void registrarCliente(String nome, String email, String celular) {
+            controladorCentral.registrarCliente(nome, email, celular);
 
 	}
 
