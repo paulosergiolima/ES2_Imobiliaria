@@ -41,4 +41,7 @@ public class Imovel {
             this.laudo_vistoria = laudo_vistoria;
         }
 
+        public String getNome() {
+            return nome;
+        }
 }

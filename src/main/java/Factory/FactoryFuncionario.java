@@ -15,20 +15,24 @@ public class FactoryFuncionario {
 	private FactoryPessoa factoryPessoa;
 
 	private Gerente gerente;
+        
+        public FactoryFuncionario() {
+            this.factoryPessoa = new FactoryPessoa();
+        }
 
 	/**
 	 *  
 	 */
-	public Funcionario criarFuncionario(float salario, String senha, String nome, String email, String celular) {
-                PessoaFisica pessoa = (PessoaFisica) factoryPessoa.criarPessoa(nome, email, celular);
-                Funcionario func = new Funcionario(salario, pessoa);            
-		return func;
-	}
+	public Funcionario criarFuncionario(float salario, String senha, String nome, String email, String celular, String cpf) {
+            PessoaFisica pessoa = factoryPessoa.criarPessoaFisica(nome, email, celular, cpf);
+            Funcionario func = new Funcionario(salario, pessoa);
+            return func;
+        }
 
-	public Gerente criarGerente(float salario, String senha, String nome, String email, String celular) {
-                PessoaFisica pessoa = (PessoaFisica) factoryPessoa.criarPessoa(nome, email, celular);
-                Gerente gere = new Gerente(salario, pessoa);
-		return gere;
-	}
+        public Gerente criarGerente(float salario, String senha, String nome, String email, String celular, String cpf) {
+            PessoaFisica pessoa = factoryPessoa.criarPessoaFisica(nome, email, celular, cpf);
+            Gerente gere = new Gerente(salario, pessoa);
+            return gere;
+        }
 
 }

@@ -12,18 +12,26 @@ public class CatalogoImoveis {
 
 	private ControladorFuncionario controladorFuncionario;
 
+        public CatalogoImoveis() {
+            this.imoveis = new ArrayList<>();
+        }
 	/**
 	 *  
 	 */
 	public void adicionarImovel(Imovel imovel) {
-
+            this.imoveis.add(imovel);
 	}
 
 	/**
 	 *  
 	 */
 	public Imovel buscarImovel(String nome) {
-		return null;
+            for(int i = 0; i < imoveis.size(); i++) {
+                if(imoveis.get(i).getNome().equals(nome)) {
+                    return imoveis.get(i);
+                }
+            }
+            return null;
 	}
 
 }

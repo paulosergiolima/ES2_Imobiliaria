@@ -32,5 +32,9 @@ public class Funcionario {
             this.pessoa = pessoa;
             
         }
+        
+        public String getNome() {
+            return pessoa.getNome();
+        }
 
 }

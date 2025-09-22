@@ -12,18 +12,27 @@ public class ControladorGerente {
 	private FactoryFuncionario factoryFuncionario;
 
 	private CatalogoFuncionario catalogoFuncionario;
+        
+        public ControladorGerente() {
+            this.factoryFuncionario = new FactoryFuncionario();
+            this.catalogoFuncionario = new CatalogoFuncionario();
+        }
 
-	public void registrarFuncionario(float salario, String senha, String nome, String email, String celular) {
-            Funcionario funcionario = factoryFuncionario.criarFuncionario(salario, senha, nome, email, celular);
+	public void registrarFuncionario(float salario, String senha, String nome, String email, String celular, String cpf) {
+            Funcionario funcionario = factoryFuncionario.criarFuncionario(salario, senha, nome, email, celular, cpf);
             catalogoFuncionario.adicionarFuncionario(funcionario);
 
 	}
 
-	public void registrarGerente(float salario, String senha, String nome, String email, String celular) {
+	public void registrarGerente(float salario, String senha, String nome, String email, String celular, String cpf) {
             
-            Gerente gerente = factoryFuncionario.criarGerente(salario, senha, nome, email, celular);
+            Gerente gerente = factoryFuncionario.criarGerente(salario, senha, nome, email, celular, cpf);
             catalogoFuncionario.adicionarFuncionario(gerente);
 
 	}
+        
+        public Funcionario buscarFuncionarioPorNome(String nome) {
+            return catalogoFuncionario.buscarFuncionarioPorNome(nome);
+        }
 
 }

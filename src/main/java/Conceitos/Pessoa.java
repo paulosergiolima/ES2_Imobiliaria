@@ -29,7 +29,7 @@ public class Pessoa {
 	 *  
 	 */
 	public void notificar(String text) {
-            Notificacao notificao = factoryNotificacao.criarNotificacao(text);
+            Notificacao notificacao = factoryNotificacao.criarNotificacao(text);
             notificacoes.add(notificacao);
             
 
@@ -48,6 +48,8 @@ public class Pessoa {
 		this.nome = nome;
                 this.email = email;
                 this.celular = celular;
+                this.factoryNotificacao = new FactoryNotificacao();
+                this.notificacoes = new ArrayList<>();
 	}
         
         

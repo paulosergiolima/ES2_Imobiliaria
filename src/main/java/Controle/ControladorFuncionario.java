@@ -45,6 +45,18 @@ public class ControladorFuncionario {
 
 
 	private CatalogoImoveis catalogoImoveis;
+        
+        public ControladorFuncionario() {
+            this.factoryAgendamento = new FactoryAgendamento();
+            this.factoryCliente = new FactoryCliente();
+            this.factoryAluguel = new FactoryAluguel();
+            this.factoryImovel = new FactoryImovel();
+            this.factoryLaudo = new FactoryLaudo();
+            this.catalogoAgendamentos = new CatalogoAgendamentos();
+            this.catalogoClientes = new CatalogoClientes();
+            this.catalogoAlugueis = new CatalogoAlugueis();
+            this.catalogoImoveis = new CatalogoImoveis();
+        }
 
 	/**
 	 *  
@@ -106,5 +118,13 @@ public class ControladorFuncionario {
             imovel.setLaudoTecnico(laudo_tecnico);
             
 	}
+        
+        public Cliente buscarClientePorNome(String nome) {
+            return catalogoClientes.buscarClientePorNome(nome);
+        }
+        
+        public Imovel buscarImovel(String nome) {
+            return catalogoImoveis.buscarImovel(nome);
+        }
 
 }

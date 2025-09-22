@@ -15,11 +15,14 @@ public class CatalogoClientes {
 
 	private ControladorFuncionario controladorFuncionario;
 
+        public CatalogoClientes() {
+            this.clientes = new ArrayList<>();
+        }
 	/**
 	 *  
 	 */
 	public void adicionarCliente(Cliente cliente) {
-
+            this.clientes.add(cliente);
 	}
 
 	/**
@@ -27,6 +30,18 @@ public class CatalogoClientes {
 	 */
 	public void criarMulta() {
 
+	}
+        
+        /**
+	 *  
+	 */
+	public Cliente buscarClientePorNome(String nome) {
+            for(int i = 0; i < clientes.size(); i++) {
+                if(clientes.get(i).getNome().equals(nome)) {
+                    return clientes.get(i);
+                }
+            }
+            return null;
 	}
 
 }
