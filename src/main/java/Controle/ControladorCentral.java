@@ -94,4 +94,16 @@ public class ControladorCentral {
         public Imovel buscarImovel(String nome) {
             return controladorFuncionario.buscarImovel(nome);
         }
+        public double consultaGastosMensais() {
+            return controladorFuncionario.consultaGastosMensais();
+        }
+
+        public String consultaIdentificador(int objetivo, String identificador) {
+            return controladorFuncionario.consultaIdentificador(objetivo,identificador);
+        }
+
+        public String consultaListagem(int objetivo) {
+            return controladorFuncionario.consultaListagem(objetivo);
+        }
+        
 }

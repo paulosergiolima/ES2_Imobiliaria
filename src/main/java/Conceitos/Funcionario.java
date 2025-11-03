@@ -36,5 +36,8 @@ public class Funcionario {
         public String getNome() {
             return pessoa.getNome();
         }
+        public Float getSalario() {
+            return salario;
+        }
 
 }

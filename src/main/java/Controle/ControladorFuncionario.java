@@ -17,6 +17,7 @@ import Conceitos.LaudoVistoria;
 import Conceitos.AgendamentoVisita;
 import Conceitos.AgendamentoVistoria;
 import Conceitos.Aluguel;
+import Catalogos.CatalogoFuncionario;
 
 import java.time.LocalDateTime;
 
@@ -42,6 +43,8 @@ public class ControladorFuncionario {
 	private FactoryImovel factoryImovel;
 
 	private FactoryLaudo factoryLaudo;
+        
+        private CatalogoFuncionario catalagoFuncionario;
 
 
 	private CatalogoImoveis catalogoImoveis;
@@ -125,6 +128,29 @@ public class ControladorFuncionario {
         
         public Imovel buscarImovel(String nome) {
             return catalogoImoveis.buscarImovel(nome);
+        }
+        public double consultaGastosMensais() {
+            return catalagoFuncionario.calcularGastos();
+        }
+
+        public String consultaIdentificador(int objetivo, String identificador) {
+            if (objetivo == 0) {
+                return catalogoClientes.buscarClientePorNome(identificador).getNome();
+            }else if (objetivo == 1) {
+                return catalagoFuncionario.buscarFuncionarioPorNome(identificador).getNome();
+            }else {
+                throw new IllegalArgumentException("Objetivo tem que ser funcionário ou cliente!");
+            }
+        }
+
+        public String consultaListagem(int objetivo) {
+            if (objetivo == 0) {
+                return catalogoClientes.listar();
+            }else if (objetivo == 1) {
+                return catalagoFuncionario.listar();
+            } else {
+                throw new IllegalArgumentException("Objetivo tem que ser funcionário ou cliente!");
+            }
         }
 
 }

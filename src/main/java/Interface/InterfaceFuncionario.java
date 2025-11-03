@@ -48,5 +48,14 @@ public class InterfaceFuncionario {
             interfaceCentral.registrarLaudoTecnico(nome_laudo, nome_imovel, endereco, valor_imovel, area);
 
 	}
+        public double consultaGastosMensais() {
+            return interfaceCentral.consultaGastosMensais();
+        }
+        public String consultaIdentificador(int objetivo, String identificador) {
+            return interfaceCentral.consultaIdentificador(objetivo, identificador);
+        }
+        public String consultaListagem(int objetivo) {
+            return interfaceCentral.consultaListagem(objetivo);
+        }
 
 }

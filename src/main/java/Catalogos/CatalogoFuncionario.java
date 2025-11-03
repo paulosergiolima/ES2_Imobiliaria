@@ -33,5 +33,21 @@ public class CatalogoFuncionario {
             }
             return null;
 	}
+        public double calcularGastos() {
+            double gasto = 0;
+            for(int i = 0;i < funcionarios.size();i++) {
+                gasto = gasto + funcionarios.get(i).getSalario();
+            }
+            return gasto;
+        }
+
+        public String listar() {
+            StringBuilder value = new StringBuilder("");
+            for(int i = 0;i < funcionarios.size();i++) {
+                funcionario = funcionarios.get(i);
+                value.append("Nome: ").append(funcionario.getNome()).append(";Salário:").append(funcionario.getSalario()).append("\n");
+            }
+            return value.toString();
+        }
 
 }

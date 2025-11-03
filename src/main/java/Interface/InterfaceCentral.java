@@ -69,5 +69,18 @@ public class InterfaceCentral {
 	public int mostrarCobrancas(String texto) {
 		return 0;
 	}
+        public double consultaGastosMensais() {
+            return controladorCentral.consultaGastosMensais();
+        }
+
+        public String consultaIdentificador(int objetivo, String identificador) {
+            return controladorCentral.consultaIdentificador(objetivo,identificador);
+        }
+
+        public String consultaListagem(int objetivo) {
+            return controladorCentral.consultaListagem(objetivo);
+        }
+
+    
 
 }

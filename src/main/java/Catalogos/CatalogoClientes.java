@@ -44,4 +44,13 @@ public class CatalogoClientes {
             return null;
 	}
 
+    public String listar() {
+        StringBuilder value = new StringBuilder("");
+            for(int i = 0;i < clientes.size();i++) {
+                cliente = clientes.get(i);
+                value.append("Nome: ").append(cliente.getNome()).append("\n");
+            }
+            return value.toString();
+    }
+
 }
