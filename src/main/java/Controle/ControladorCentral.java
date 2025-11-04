@@ -74,6 +74,10 @@ public class ControladorCentral {
             controladorFuncionario.registrarLaudoTecnico(nome_laudo, nome_imovel, endereco, valor_imovel, area);
 
 	}
+        
+        public boolean registrarSeguro(String nome, double valor, String descricao) {
+            return controladorFuncionario.registrarSeguro(nome, valor, descricao);
+        }
 
 	public void pagarCobranca(Cliente cliente) {
 

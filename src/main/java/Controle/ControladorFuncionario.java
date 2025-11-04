@@ -18,6 +18,10 @@ import Conceitos.AgendamentoVisita;
 import Conceitos.AgendamentoVistoria;
 import Conceitos.Aluguel;
 import Catalogos.CatalogoFuncionario;
+import Conceitos.Seguro;
+import Factory.FactorySeguro;
+import Catalogos.CatalogoSeguros;
+import Persistencia.Logger;
 
 import java.time.LocalDateTime;
 
@@ -45,6 +49,12 @@ public class ControladorFuncionario {
 	private FactoryLaudo factoryLaudo;
         
         private CatalogoFuncionario catalagoFuncionario;
+        
+        private FactorySeguro factorySeguro;
+        
+        private CatalogoSeguros catalogoSeguros;
+        
+        private Logger logger;
 
 
 	private CatalogoImoveis catalogoImoveis;
@@ -121,6 +131,13 @@ public class ControladorFuncionario {
             imovel.setLaudoTecnico(laudo_tecnico);
             
 	}
+        
+        public boolean registrarSeguro(String nome, double valor, String descricao) {
+            Seguro seguro = factorySeguro.criarSeguro(nome, valor, descricao);
+            catalogoSeguros.registrarSeguro(seguro);
+            logger.log("Seguro registrado.");
+            return true;
+        }
         
         public Cliente buscarClientePorNome(String nome) {
             return catalogoClientes.buscarClientePorNome(nome);

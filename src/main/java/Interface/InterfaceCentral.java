@@ -61,6 +61,10 @@ public class InterfaceCentral {
             controladorCentral.registrarLaudoTecnico(nome_laudo, nome_imovel, endereco, valor_imovel, area);
 
 	}
+        
+        public boolean registrarSeguro(String nome, double valor, String descricao) {
+            return controladorCentral.registrarSeguro(nome, valor, descricao);
+        }
 
 	public void pagarCobranca(Cliente cliente) {
 

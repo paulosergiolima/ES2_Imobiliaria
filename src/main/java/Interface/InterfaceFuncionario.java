@@ -48,6 +48,11 @@ public class InterfaceFuncionario {
             interfaceCentral.registrarLaudoTecnico(nome_laudo, nome_imovel, endereco, valor_imovel, area);
 
 	}
+        
+        public boolean registrarSeguro(String nome, double valor, String descricao) {
+            return interfaceCentral.registrarSeguro(nome, valor, descricao);
+        }
+        
         public double consultaGastosMensais() {
             return interfaceCentral.consultaGastosMensais();
         }
